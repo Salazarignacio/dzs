@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    color: white;
+    background-color: black;
+}
+
+.navbar-dark {
+    background-color: blue
+}
+
+.carrusel {
+    background-color: black;
+}
+
+.card__img {
+    width: 100%;
+}
+
+.contenedorProductos {
+    display: flex;
+    background-color: blue;
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+.fff {
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    width: 250px;
+}
+
+
+/* carrito */
+
+
+/* carrito acumulado */
+
+#contenedorB {
+    display: flex;
+    background-color: red;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cB {
+    background-color: blue;
+    width: 220px;
+    display: flex;
+}
+
+.idP {
+    background-color: rgb(74, 74, 74);
+    width: 200px;
+    margin: 0 auto;
+}
+
+.imgP {
+    width: 100px;
+}
+
+/* clase a agregar */
+
+.popup {
+    background-color: yellow;
+}
+
+#btn_eliminar {
+    background-color: blue;
+}
+
+#btn_carrito-4 {
+    background-color: red;
+}

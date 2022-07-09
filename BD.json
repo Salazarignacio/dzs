@@ -1,0 +1,33 @@
+ [{
+    "id": 1,
+    "img": "./imagenes/id1.jpg",
+    "producto": "Detergente Revigal",
+    "tamanio": "500cc",
+    "precio": 200,
+    "cantidad": 1
+},
+{
+    "id": 2,
+    "img": "./imagenes/id2.jpg",
+    "producto": "Cera Revigal",
+    "tamanio": "300cc",
+    "precio": 250,
+    "cantidad": 1
+},
+{
+    "id": 3,
+    "img": "./imagenes/id3.jpg",
+    "producto": "Autopolish",
+    "tamanio": "1lts",
+    "precio": 500,
+    "cantidad": 1
+},
+{
+    "id": 4,
+    "img": "./imagenes/id4.jpg",
+    "producto": "Renovador Revigal",
+    "tamanio": "500cc",
+    "precio": 700,
+    "cantidad": 1
+}
+]
