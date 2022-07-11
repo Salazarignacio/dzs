@@ -21,7 +21,7 @@ fetch("./BD.json") // llamo al archivo json
 });
 
 const mcarrito = document.getElementById("mcarrito")
-mcarrito.onclick = mostrarTotal()
+mcarrito.onclick = setTimeout(() => { mostrarTotal() })
 
 let btns = "";
 setTimeout(() => {
