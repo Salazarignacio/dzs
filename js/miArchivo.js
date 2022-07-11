@@ -1,7 +1,7 @@
 let acumulado = [];
 let arrayL = [];
 let llamado = document.getElementById("contenedor");
-fetch("bd.json") // llamo al archivo json
+fetch("./bd.json") // llamo al archivo json
     .then((res) => res.json())
 
 .then((data) => {
