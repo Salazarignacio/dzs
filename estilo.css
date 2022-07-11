@@ -39,8 +39,16 @@ h1 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: gray;
+    background-color: rgb(93, 93, 93);
     width: 100%
+}
+
+.btn_carrito {
+    border-radius: 8px;
+}
+
+.btn_carrito:hover {
+    background-color: rgb(255, 223, 61);
 }
 
 .fff {
@@ -48,7 +56,7 @@ h1 {
     flex-direction: column;
     margin: 0.8rem;
     padding: 8px;
-    background-color: rgb(60, 145, 242);
+    background-color: rgb(123, 185, 255);
     border: solid 2px blue;
     border-radius: 6px;
     width: 250px;
