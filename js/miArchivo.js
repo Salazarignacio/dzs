@@ -1,18 +1,18 @@
 let acumulado = [];
 let arrayL = [];
 let llamado = document.getElementById("contenedor");
-fetch("BD.json") // llamo al archivo json
+fetch("bd.json") // llamo al archivo json
     .then((res) => res.json())
 
 .then((data) => {
     data.forEach((prod) => {
         let contenedor = document.createElement("div");
         arrayL = [
-            (contenedor.innerHTML = `<div class="fff"><h3> ID: ${prod.id}</h3>
+            (contenedor.innerHTML = `<div class="fff">
 <img class="card__img" src="${prod.img}" alt="">
-<p>Producto: ${prod.producto}</p>
-<p>Tamanio: ${prod.tamanio}</p>
-<p>Precio: $ ${prod.precio}</p>
+<p> ${prod.producto} ${prod.tamanio} </p>
+<p> $${prod.precio}</p>
+
 <button class="btn_carrito" id="btn_carrito-${prod.id}">Agregar Carrito</button></div>`),
         ];
 

@@ -1,33 +1,101 @@
  [{
-    "id": 1,
-    "img": "./imagenes/id1.jpg",
-    "producto": "Detergente Revigal",
-    "tamanio": "500cc",
-    "precio": 200,
-    "cantidad": 1
-},
-{
-    "id": 2,
-    "img": "./imagenes/id2.jpg",
-    "producto": "Cera Revigal",
-    "tamanio": "300cc",
-    "precio": 250,
-    "cantidad": 1
-},
-{
-    "id": 3,
-    "img": "./imagenes/id3.jpg",
-    "producto": "Autopolish",
-    "tamanio": "1lts",
-    "precio": 500,
-    "cantidad": 1
-},
-{
-    "id": 4,
-    "img": "./imagenes/id4.jpg",
-    "producto": "Renovador Revigal",
-    "tamanio": "500cc",
-    "precio": 700,
-    "cantidad": 1
-}
-]
+         "id": 1,
+         "img": "./imagenes/id1.jpg",
+         "producto": "Detergente Revigal",
+         "tamanio": "500cc",
+         "precio": 200,
+         "cantidad": 1
+     },
+     {
+         "id": 2,
+         "img": "./imagenes/id2.jpg",
+         "producto": "Cera Revigal",
+         "tamanio": "300cc",
+         "precio": 250,
+         "cantidad": 1
+     },
+     {
+         "id": 3,
+         "img": "./imagenes/id3.jpg",
+         "producto": "Autopolish",
+         "tamanio": "1lts",
+         "precio": 500,
+         "cantidad": 1
+     },
+     {
+         "id": 4,
+         "img": "./imagenes/id4.jpg",
+         "producto": "Renovador Revigal",
+         "tamanio": "500cc",
+         "precio": 700,
+         "cantidad": 1
+     },
+
+     {
+         "id": 5,
+         "img": "./imagenes/id5.jpg",
+         "producto": "Espuma Revigal",
+         "tamanio": "500cc",
+         "precio": 2500,
+         "cantidad": 1
+     },
+
+     {
+         "id": 6,
+         "img": "./imagenes/id6.jpg",
+         "producto": "Revividor Permanente",
+         "tamanio": "1lt",
+         "precio": 850,
+         "cantidad": 1
+     },
+
+     {
+         "id": 7,
+         "img": "./imagenes/id7.png",
+         "producto": "Finalizador Mazerna",
+         "tamanio": "300cc",
+         "precio": 800,
+         "cantidad": 1
+     },
+     {
+         "id": 8,
+         "img": "./imagenes/id8.jpg",
+         "producto": "Renovador Revigal",
+         "tamanio": "250cc",
+         "precio": 250,
+         "cantidad": 1
+     },
+     {
+         "id": 9,
+         "img": "./imagenes/id9.jpg",
+         "producto": "Super Rdor Revigal",
+         "tamanio": "300cc",
+         "precio": 1250,
+         "cantidad": 1
+     },
+     {
+         "id": 10,
+         "img": "./imagenes/id10.jpg",
+         "producto": "Cera Revigal",
+         "tamanio": "300cc",
+         "precio": 250,
+         "cantidad": 1
+     },
+     {
+         "id": 11,
+         "img": "./imagenes/id11.jpg",
+         "producto": "Cera Revigal",
+         "tamanio": "300cc",
+         "precio": 1250,
+         "cantidad": 1
+     },
+     {
+         "id": 12,
+         "img": "./imagenes/id12.jpg",
+         "producto": "Aromatizante Revigal",
+         "tamanio": "1u",
+         "precio": 2350,
+         "cantidad": 1
+     }
+
+ ]
