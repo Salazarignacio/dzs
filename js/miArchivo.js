@@ -20,6 +20,9 @@ fetch("BD.json") // llamo al archivo json
     });
 });
 
+const mcarrito = document.getElementById("mcarrito")
+mcarrito.onclick = mostrarTotal()
+
 let btns = "";
 setTimeout(() => {
     // hago un setTimeout para esperar que renderice el html
@@ -36,7 +39,6 @@ function agregarCarro(e) {
     // console.log(btn.id)
     //   console.log(btn.id.split('-'))
     const id = btn.id.split("-")[1]; //Identifica el numero de ID de cada boton
-    console.log(id)
     fetch("BD.json") // llamo al archivo json
         .then((res) => res.json())
 
@@ -55,65 +57,10 @@ function agregarCarro(e) {
 
 
         mostrarCarrito(acumulado);
+        mostrarTotal()
         enviar = localStorage.setItem("acumulado", JSON.stringify(acumulado));
     });
 }
-
-// // boton eliminar
-// let biri2 = document.getElementById("ep");
-// biri2.innerHTML = "<button>Eliminar Producto</button>";
-// biri2.onclick = () => {
-//   if (acumulado != 0) {
-//     Swal.fire({
-//       title: "Esta seguro que desea eliminar el producto?",
-//       icon: "warning",
-//       showCancelButton: true,
-//       confirmButtonText: "Eliminar",
-//       cancelButtonText: "Cancelar",
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         // eliminarelemento();
-//         /*         localStorage.clear(); //ojo aca
-//          */ mostrarCarrito(acumulado);
-//         Swal.fire({
-//           title: "Producto Eliminado",
-//           icon: "succes",
-//           text: "El archivo ha sido eliminado",
-//         });
-//       }
-//     });
-//   }
-// };
-/* // Vaciar carrito
-let biri3 = document.getElementById("eliminio");
-biri3.innerHTML = ";
-biri3.onclick = () => {
-  if (acumulado != 0) {
-    Swal.fire({
-      title: "Desea eliminar todos los articulos de su carrito?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Vaciar Carrito",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // eliminarTodo(acumulado);
-        // localStorage.clear();
-      }
-      mostrarCarrito(acumulado);
-      Swal.fire({
-        tile: "Carrito Vacio",
-        icon: "succes",
-        text: "Su carrito esta Vacio",
-      });
-    });
-  }
-};
- */
-/* renderP(arrayLista);
- */
-
-// intento obtener los datos del local para usarlos en la funcion y utilizar la variable "pedirDatos" en reemplazo al array "acumulado"
 
 function mostrarCarrito(e) {
     console.log("Compra finalizada");
@@ -121,22 +68,21 @@ function mostrarCarrito(e) {
     acumulado.forEach((prod) => {
         console.log(prod.id + " - " + prod.producto);
     });
-    // local
     // bucle que recorre acumulado y retorna la funcion para renderizar producto seleccionado
     for (i = 0; i < acumulado.length; i++) {
         return renderA(e);
     }
 
     // variable total para acumular la suma de precios a traves del metodo reduce
-    const total = acumulado.reduce((suma, prod) => suma + prod.precio, 0);
-    /* localStorage.setItem ("acumule", JSON.stringify(acumulado)); */
+    const total = acumulado.reduce((suma, prod) => suma + (prod.precio * prod.cantidad), 0);
+
 
     total === 0 ?
         Swal.fire({ text: "El carrito esta vacio", icon: "error" }) :
         console.log("Total: " + "\n" + total);
     contenedorB.innerHTML = "";
 
-    // renderA(e);
+
 }
 
 let llama = "";
@@ -156,11 +102,9 @@ const renderA = (a) => {
         html = `
       <div class="idP"><h3> ID: ${prod.id}</h3>
       <img class="imgP" src="${prod.img}" alt="">
-      <p>Producto: ${prod.producto}</p>
-      <p>Tamanio: ${prod.tamanio}</p>
-      <p>Precio: $ ${prod.precio}</p>
       <p>Cantidad: ${prod.cantidad}</p>
-      <button class="btn_eliminar" id="eliminar-${prod.id}">Eliminardo</button></div>
+      <button class="btn_eliminar" id="eliminar-${prod.id}">Eliminar Producto</button>
+      </div></div>
      `;
         contenedorB.innerHTML += html;
         llamadoB.appendChild(contenedorB);
@@ -171,66 +115,45 @@ const renderA = (a) => {
         //UN For Of, para recorrer todos los botones
         b.onclick = eliminarProduc;
     }
+
+
+
 };
+
+// Funcion mostrar total
+
+function mostrarTotal() {
+
+    const totalisimo = acumulado.reduce((suma, prod) => suma + (prod.precio * prod.cantidad), 0);
+    let llamarTotal = document.getElementById("totalCarrito")
+
+    llamarTotal.innerHTML = `<p>Total de su compra es $${totalisimo}</p>`
+
+}
+
 //FUNCION PARA DETECTAR LOS PRODCUTOS EN EL CARRO
 function eliminarProduc(e) {
     const btn = e.target;
     const id = btn.id.split("-")[1];
     console.log("ID: " + id)
 
-
-    /*   let busqueda = acumulado.map(el=> el.id).indexOf(e.target.id)
-      acumulado.splice(busqueda, 1) */
-
-    // Esto deberia hacerse con id == id y no un if por cada productor
     acumulado.forEach((prod) => {
         if (prod.id == id) {
             if (prod.cantidad == 1) {
                 let busqueda = acumulado.map(el => el.id).indexOf(prod.id)
                 acumulado.splice(busqueda, 1)
-                console.log("BUSQ " + busqueda)
             } else { prod.cantidad-- }
         }
         enviar = localStorage.setItem("acumulado", JSON.stringify(acumulado));
     })
 
 
-    /*     if (e.target.id === "eliminar-1") {
-            let busqueda = acumulado.map(el => el.producto).indexOf("Detergente Revigal")
-            acumulado.splice(busqueda, 1)
-        } else if (e.target.id === "eliminar-2") {
-            let busqueda = acumulado.map(el => el.producto).indexOf("Cera Revigal")
-            acumulado.splice(busqueda, 1)
-        } else if (e.target.id === "eliminar-3") {
-            let busqueda = acumulado.map(el => el.producto).indexOf("Autopolish")
-            acumulado.splice(busqueda, 1)
-        } else if (e.target.id === "eliminar-4") {
-            let busqueda = acumulado.map(el => el.producto).indexOf("Renovador Revigal")
-            acumulado.splice(busqueda, 1) */
-    /* } else if (acumulado.length == 0) { contenedorB.innerHTML = ""; } */
-
-
-    //  BUSCAR METODO ARRAY PARA ELIMINAR UN PRODUCTO
-    /*   const iu = acumulado.find((el) => el.producto==="Autopolish");
-    const iuda =acumulado.indexOf(iu)
-    console.log(iuda)
-    acumulado.splice(iuda,1) */
+    mostrarTotal()
     mostrarCarrito(acumulado)
 }
 
 let llamador = document.getElementById("eliminar-2");
-/* llamador.onclick(()=>alert("hola"))
- */
-// function eliminarelemento() {
-//   acumulado.pop();
-//   acumulado.length === 0
-//     ? Swal.fire({ text: "El carrito esta vacio", icon: "error" })
-//     : acumulado.forEach((prod) => {
-//         console.log(
-//           "Producto eliminado" + "\n" + prod.id + " - " + prod.producto
-//         );
-//       });
-// }
+
 
 //EVENTO CUANDO CARGA LA PAGINA
 window.addEventListener("DOMContentLoaded", () => {
@@ -243,7 +166,9 @@ window.addEventListener("DOMContentLoaded", () => {
 let vaciarTodo = document.getElementById("eliminio");
 vaciarTodo.addEventListener("click", () => {
     localStorage.clear();
-    Swal.fire({ text: "Se vacio su carrito", icon: "error" });
+    acumulado = []
+    mostrarCarrito()
+    mostrarTotal()
     console.log("Su carrito esta vacio");
-    location.reload(); //REFRESCA LA PAGINA PARA QUE ACTUALICE
+    //REFRESCA LA PAGINA PARA QUE ACTUALICE
 });
