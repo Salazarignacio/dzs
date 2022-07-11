@@ -30,6 +30,7 @@ setTimeout(() => {
     for (const btn of btns) {
         //UN For Of, para recorrer todos los botones
         btn.onclick = agregarCarro; //Para agregar la funcion agregarCarro, al intereactuar con un click
+
     }
 }, 2000);
 
@@ -50,9 +51,22 @@ function agregarCarro(e) {
         if (busqueda) {
             /* console.log(acumulado[acumulado.map(el => el.id).indexOf(id)].cantidad) */
             acumulado.forEach((prod) => {
-                if (prod.id == id) { prod.cantidad++ }
+                if (prod.id == id) {
+                    prod.cantidad++;
+                    Toastify({
+                        text: "+1",
+                        duration: 3000
+                    }).showToast()
+                }
             });
-        } else { acumulado.push(product) }; //Lo envio al Array acumulado
+        } else {
+            acumulado.push(product);
+            Toastify({
+                text: "Producto agregado!",
+                duration: 3000
+            }).showToast()
+        }; //Lo envio al Array acumulado
+
 
 
 
@@ -78,7 +92,7 @@ function mostrarCarrito(e) {
 
 
     total === 0 ?
-        Swal.fire({ text: "El carrito esta vacio", icon: "error" }) :
+        Swal.fire({ text: "El carrito esta vacio", icon: "success" }) :
         console.log("Total: " + "\n" + total);
     contenedorB.innerHTML = "";
 
@@ -147,9 +161,14 @@ function eliminarProduc(e) {
         enviar = localStorage.setItem("acumulado", JSON.stringify(acumulado));
     })
 
+    Toastify({
+        text: "Producto eliminado!",
+        duration: 3000
+    }).showToast()
 
     mostrarTotal()
     mostrarCarrito(acumulado)
+
 }
 
 let llamador = document.getElementById("eliminar-2");
@@ -169,6 +188,7 @@ vaciarTodo.addEventListener("click", () => {
     acumulado = []
     mostrarCarrito()
     mostrarTotal()
+    Swal.fire({ text: "El carrito esta vacio", icon: "success" })
     console.log("Su carrito esta vacio");
     //REFRESCA LA PAGINA PARA QUE ACTUALICE
 });
